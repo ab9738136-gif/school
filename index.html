@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>सरस्वती शिशु विद्या मंदिर सेनापति | फर्रुखाबाद</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1654567987726453"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+<!-- 📢 १. लाइव स्क्रॉलिंग नोटिस बोर्ड -->
+<div style="background: #ffebd2; color: #d35400; padding: 10px; font-weight: bold; border-bottom: 2px solid #e67e22; overflow: hidden; white-space: nowrap;">
+    <marquee behavior="scroll" direction="left" scrollamount="5">
+        🚩 आवश्यक सूचना: सत्र 2026-27 के लिए ऑनलाइन प्रवेश फॉर्म स्वीकार किए जा रहे हैं। | 📝 कक्षा १ से ८ तक की शुल्क संरचना 'शुल्क / ड्रेस' पेज पर उपलब्ध है। | 🏆 हमारे विद्यालय की वार्षिक पत्रिका 'अभ्युदय' को नीचे दिए गए बटन से डाउनलोड करें।
+    </marquee>
+</div>
+  <!-- यह है एकदम सही और फिक्स किया गया बैनर ढांचा -->
+<div class="school-banner-image" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ url_for('static', filename='images/gate.jpg') }}');">
+    <div class="banner-overlay-flex">
+        
+        <!-- बाएँ तरफ: स्कूल का मुख्य सिंह वाला लोगो -->
+        <div class="logo-box">
+            <img src="{{ url_for('static', filename='images/vidya_bharati.png') }}" alt="विद्या भारती लोगो" class="banner-side-logo bg-white-circle">
+        </div>
+        
+        <!-- बीच में: स्कूल का नाम और ध्येय वाक्य -->
+        <div class="banner-text">
+            <h1>सरस्वती शिशु विद्या मंदिर </h1>
+            <h3>सेनापति फर्रुखाबाद</h3>
+            <p class="school-motto">|| स्वयंमेव मृगेन्द्रता ||</p>
+           
+            
+        </div>
+        
+        <!-- दाएँ तरफ: विद्या भारती का लोगो -->
+      <div class="logo-box">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="स्कूल लोगो" class="banner-side-logo">
+        </div>
+    </div>
+</div>
+
+    <!-- नेविगेशन बार -->
+<!-- पूरी तरह से डायनामिक और फिक्स किया गया नेविगेशन बार -->
+<nav>
+
+    <a href="/">मुख्य पृष्ठ</a>             <!-- होम (Home) की जगह -->
+    <a href="/about">हमारा परिचय</a>          <!-- हमारे बारे में की जगह -->
+    <a href="/teachers">आचार्य परिवार</a>       <!-- शिक्षक की जगह (विद्या भारती में टीचर्स को आचार्य जी कहते हैं) -->
+    <a href="/gallery">चित्र वीथिका / आदेश</a>   <!-- गैलरी की जगह 'चित्र वीथिका' बहुत सुंदर शब्द है -->
+    <a href="/rules">नियमावली / गणवेश</a>     <!-- शुल्क/ड्रेस की जगह (ड्रेस को हिंदी में गणवेश कहते हैं) -->
+    <a href="/contact">प्रवेश आवेदन</a>        <!-- प्रवेश फॉर्म की जगह -->
+    <a href="/vandana">नित्य वंदना</a>
+    <!-- फ्लास्क चेक करेगा कि क्या एडमिन पहले से लॉग इन है -->
+    {% if session.get('logged_in') %}
+        <a href="/admin" style="color: #2ecc71;">🛠️ एडमिन पैनल</a>
+        <a href="/logout" style="color: #e74c3c; margin-left: 10px;">🔒 लॉगआउट</a>
+    {% else %}
+        <a href="/login" style="color: #f1c40f;">🔐 एडमिन लॉगिन</a>
+    {% endif %}
+</nav>
+
+
+
+
+    <main>
+        <h2>स्कूल की मुख्य विशेषताएं</h2>
+        <div class="features">
+            <div class="card">💻 कंप्यूटर शिक्षा</div>
+            <div class="card">🧘 संस्कृत एवं नैतिक शिक्षा</div>
+            <div class="card">🏆 खेलकूद एवं शारीरिक विकास</div>
+        </div>
+        
+        <!-- ☀️ २. आज का सुविचार बॉक्स -->
+<div style="max-width: 800px; margin: 30px auto; background: #fffdf6; border: 1px dashed #f39c12; border-left: 5px solid #d35400; padding: 20px; text-align: center; border-radius: 6px;">
+    <h4 style="color: #d35400; margin-bottom: 8px; font-size: 18px;">☀️ आज का सुविचार</h4>
+    <p style="font-size: 16px; font-style: italic; color: #2c3e50; font-weight: 500; line-height: 1.6;">
+        "शिक्षा केवल सूचनाएं इकट्ठा करना नहीं है, बल्कि चरित्र का निर्माण करना और मनुष्य को राष्ट्रभक्त बनाना है।" <br>
+        <span style="font-size: 14px; color: #7f8c8d; font-weight: bold;">- स्वामी विवेकानन्द</span>
+    </p>
+</div>
+        
+        <!-- मेधावी छात्र (Toppers) सेक्शन -->
+<div class="toppers-section">
+    <h2>🏆 हमारे मेधावी छात्र (उत्कृष्ट परीक्षा परिणाम)</h2>
+    <p style="text-align: center; color: #7f8c8d; margin-bottom: 20px;">विद्यालय का गौरव बढ़ाने वाले छात्र-छात्राएं</p>
+    
+    <div class="toppers-grid">
+        <!-- छात्र 1 -->
+        <div class="topper-card">
+            <img src="{{ url_for('static', filename='images/topper1.jpg') }}" onerror="this.src='https://placehold.co'">
+            <h4>अनुज कुमार</h4>
+            <p class="percentage">95.4% (कक्षा 10)</p>
+        </div>
+        <!-- छात्र 2 -->
+        <div class="topper-card">
+            <img src="{{ url_for('static', filename='images/topper2.jpg') }}" onerror="this.src='https://placehold.co'">
+            <h4>प्रिया शर्मा</h4>
+            <p class="percentage">94.2% (कक्षा 12)</p>
+        </div>
+        <!-- छात्र 3 -->
+        <div class="topper-card">
+            <img src="{{ url_for('static', filename='images/topper3.jpg') }}" onerror="this.src='https://placehold.co'">
+            <h4>अमित वर्मा</h4>
+            <p class="percentage">93.8% (कक्षा 10)</p>
+        </div>
+        <!-- छात्र 4 -->
+        <div class="topper-card">
+            <img src="{{ url_for('static', filename='images/topper4.jpg') }}" onerror="this.src='https://placehold.co'">
+            <h4>समीक्षा दीक्षित</h4>
+            <p class="percentage">92.6% (कक्षा 12)</p>
+        </div>
+        <!-- यदि आपके पास 6 या 8 फोटो हैं, तो नीचे वाले ब्लॉक चालू रखें और नाम बदलें -->
+        <div class="topper-card">
+            <img src="{{ url_for('static', filename='images/topper5.jpg') }}" onerror="this.src='https://placehold.co'">
+            <h4>गौरव सिंह</h4>
+            <p class="percentage">91.8% (कक्षा 5)</p>
+        </div>
+        <div class="topper-card">
+            <img src="{{ url_for('static', filename='images/topper6.jpg') }}" onerror="this.src='https://placehold.co'">
+            <h4>नेहा राजपूत</h4>
+            <p class="percentage">91.2% (कक्षा 8)</p>
+        </div>
+    </div>
+</div>
+<!-- शैक्षणिक कैलेंडर बॉक्स -->
+<div style="width: 100%; max-width: 950px; margin: 25px auto; background: white; padding: 25px; border-radius: 8px; border-top: 4px solid #27ae60; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+    <h3 style="color: #27ae60; text-align: center; margin-bottom: 15px;">📅 शैक्षणिक गतिविधियों की समय सारणी (२०२६)</h3>
+    <table style="width: 100%; border-collapse: collapse; text-align: left;">
+        <tr style="background: #f8f9fa; border-bottom: 1px solid #ddd;"><th style="padding: 10px;">दिनांक / महीना</th><th style="padding: 10px;">कार्यक्रम / गतिविधि विवरण</th></tr>
+        <tr style="border-bottom: 1px solid #eee;"><td style="padding: 10px;">जुलाई</td><td style="padding: 10px;">नूतन सत्रारंभ एवं प्रवेश प्रक्रिया समापन</td></tr>
+        <tr style="border-bottom: 1px solid #eee;"><td style="padding: 10px;">अक्टूबर</td><td style="padding: 10px;">अर्धवार्षिक परीक्षा एवं श्रीकृष्ण जन्माष्टमी उत्सव झलकियां</td></tr>
+        <tr style="border-bottom: 1px solid #eee;"><td style="padding: 10px;">दिसंबर</td><td style="padding: 10px;">वार्षिक खेलकूद प्रतियोगिता एवं सांस्कृतिक कार्यक्रम</td></tr>
+        <tr style="border-bottom: 1px solid #eee;"><td style="padding: 10px;">मार्च</td><td style="padding: 10px;">वार्षिक परीक्षा एवं परीक्षा परिणाम घोषणा</td></tr>
+    </table>
+    
+      
+</div>
+
+    </main>
+<!-- 🛡️ फीडबैक, शिकायत एवं ईमेल बॉक्स सेक्शन -->
+<div class="form-container" style="max-width: 700px; margin: 40px auto; border-top: 4px solid #c0392b;">
+    <h2 style="text-align: center; color: #2c3e50;">🛡️ त्वरित शिकायत एवं फीडबैक बॉक्स</h2>
+    <p style="text-align: center; color: #7f8c8d; margin-bottom: 20px;">विद्यालय सुधार हेतु अपने बहुमूल्य सुझाव या शिकायत सीधे प्रबंधन तक पहुंचाएं।</p>
+    
+    <form action="/submit_query" method="POST">
+        <div class="form-row">
+            <div class="form-group">
+                <label>अभिभावक का पूरा नाम:</label>
+                <input type="text" name="parent_name" required>
+            </div>
+            <div class="form-group">
+                <label>मोबाइल नंबर:</label>
+                <input type="tel" name="mobile" pattern="[0-9]{10}" placeholder="10 अंकों का नंबर" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>संदेश का प्रकार चुनें:</label>
+            <select name="msg_type" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 15px;" required>
+                <option value="सुझाव (Suggestion)">💡 विद्यालय सुधार हेतु सुझाव</option>
+                <option value="शिकायत (Complaint)">⚠️ आवश्यक शिकायत</option>
+                <option value="प्रशंसा (Appreciation)">✨ आचार्यों/व्यवस्था की प्रशंसा</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>आपका विस्तृत संदेश (Message):</label>
+            <textarea name="message" rows="4" placeholder="यहाँ अपनी बात लिखें..." required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" style="background-color: #2c3e50;">📥 वेबसाइट पर दर्ज करें और आगे बढ़ें</button>
+    </form>
+
+    <!-- 📧 डायरेक्ट ईमेल भेजने का विकल्प -->
+    <div style="text-align: center; margin-top: 25px; padding-top: 15px; border-top: 1px dashed #ccc;">
+        <p style="color: #555; font-weight: bold; margin-bottom: 10px;">अथवा सीधे आधिकारिक ईमेल द्वारा संपर्क करें:</p>
+        <a href="mailto:ssm.senapati.fbd@://gmail.com" style="display: inline-block; padding: 10px 20px; background: #d35400; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 15px;">
+            📧 आधिकारिक ईमेल भेजें
+        </a>
+    </div>
+</div>
+
+    <footer>
+        <p>&copy; 2026 सरस्वती शिशु मंदिर सेनापति, फर्रुखाबाद. सभी अधिकार सुरक्षित।</p>
+    </footer>
+</body>
+</html>
