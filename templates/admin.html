@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>मास्टर एडमिन पैनल | सरस्वती शिशु मंदिर</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .dashboard-box { display: flex; gap: 20px; margin-bottom: 30px; }
+        .stat-card { flex: 1; padding: 20px; background: #eef2f7; text-align: center; border-radius: 6px; border-bottom: 4px solid #2c3e50; }
+        .stat-card h2 { color: #2c3e50; font-size: 32px; margin-top: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 14px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #2c3e50; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .mini-form input { padding: 8px; margin: 5px 0; width: 100%; box-sizing: border-box; }
+    </style>
+</head>
+<body>
+    <div class="school-banner-image" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ url_for('static', filename='images/gate.jpg') }}');">
+        <div class="banner-overlay-flex">
+            <div class="banner-text"><h1>🚩 मास्टर कंट्रोल एडमिन डैशबोर्ड</h1><h3>सरस्वती शिशु मंदिर सेनापति, फर्रुखाबाद</h3></div>
+            <a href="/logout" style="background: #c0392b; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px; font-weight: bold;">🔒 लॉगआउट</a>
+        </div>
+    </div>
+
+    <div style="padding: 20px; max-width: 1200px; margin: 0 auto; background: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+        
+        <!-- 📊 लाइव डेटा काउंटर्स -->
+        <div class="dashboard-box">
+            <div class="stat-card"><h3>📋 कुल प्राप्त प्रवेश फॉर्म</h3><h2>{{ count_adm }}</h2></div>
+            <div class="stat-card" style="border-color: #27ae60;"><h3>🏆 कुल घोषित परीक्षा परिणाम</h3><h2>{{ count_res }}</h2></div>
+            <div class="stat-card" style="border-color: #c0392b;"><h3>🛡️ कुल प्राप्त शिकायतें/सुझाव</h3><h2>{{ count_que }}</h2></div>
+        </div>
+
+        <!-- 📤 नया रिजल्ट अपलोड करने का फॉर्म -->
+        <div style="background: #fffdf9; border: 1px solid #f39c12; padding: 20px; border-radius: 6px; margin-bottom: 30px;" class="mini-form">
+            <h3 style="color: #d35400; margin-bottom: 15px;">📝 नया छात्र परीक्षा परिणाम (Result) अपलोड करें</h3>
+            <form method="POST">
+                <input type="hidden" name="add_result" value="1">
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <input type="text" name="roll_no" placeholder="अनुक्रमांक (जैसे: 101)" required style="flex: 1; min-width: 150px;">
+                    <input type="text" name="name" placeholder="छात्र का नाम" required style="flex: 1; min-width: 150px;">
+                    <input type="text" name="class_name" placeholder="कक्षा (जैसे: कक्षा ५)" required style="flex: 1; min-width: 150px;">
+                </div>
+                <div style="display: flex; gap: 15px; margin-top: 10px;">
+                    <input type="number" name="hindi" placeholder="हिंदी मार्क्स" max="100" required>
+                    <input type="number" name="english" placeholder="अंग्रेजी" max="100" required>
+                    <input type="number" name="math" placeholder="गणित" max="100" required>
+                    <input type="number" name="science" placeholder="विज्ञान" max="100" required>
+                </div>
+                <button type="submit" class="submit-btn" style="background: #27ae60; max-width: 200px; margin-top: 15px;">💾 परिणाम सुरक्षित करें</button>
+            </form>
+        </div>
+
+        <!-- 📋 प्राप्त एडमिशन फॉर्म्स की बड़ी सूची -->
+        <h2>📋 ऑनलाइन प्राप्त प्रवेश आवेदनों की सूची</h2>
+        <div style="overflow-x: auto; margin-bottom: 40px;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>आईडी</th><th>छात्र का नाम</th><th>पिता का नाम</th><th>माता का नाम</th>
+                        <th>जन्म तिथि</th><th>कक्षा</th><th>आधार नंबर</th><th>मोबाइल नंबर</th><th>स्थायी पता</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                    <tr>
+                        <td>{{ student[0] }}</td>
+                        <td>{{ student[1] }}</td>
+                        <td>{{ student[2] }}</td>
+                        <td>{{ student[3] }}</td>
+                        <td>{{ student[4] }}</td>
+                        <td>{{ student[5] }}</td>
+                        <td>{{ student[6] }}</td>
+                        <td>{{ student[7] }}</td>
+                        <td>{{ student[8] }}</td>
+                    </tr>
+                    {% else %}
+                    <tr><td colspan="9" style="text-align: center; font-weight: bold; color: #7f8c8d;">अभी तक कोई नया आवेदन प्राप्त नहीं हुआ है।</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 🛡️ प्राप्त शिकायतों और सुझावों की सूची -->
+        <h2 style="color: #c0392b;">🛡️ अभिभावकों से प्राप्त शिकायतें एवं सुझाव</h2>
+        <div style="overflow-x: auto;">
+            <table>
+                <thead>
+                    <tr style="background-color: #c0392b;">
+                        <th>आईडी</th><th>अभिभावक का नाम</th><th>मोबाइल नंबर</th><th>मैसेज का प्रकार</th><th>विस्तृत संदेश</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for query in queries %}
+                    <tr>
+                        <td>{{ query[0] }}</td>
+                        <td>{{ query[1] }}</td>
+                        <td>{{ query[2] }}</td>
+                        <td><strong style="color: #d35400;">{{ query[3] }}</strong></td>
+                        <td>{{ query[4] }}</td>
+                    </tr>
+                    {% else %}
+                    <tr><td colspan="5" style="text-align: center; font-weight: bold; color: #7f8c8d;">अभी तक कोई शिकायत या सुझाव प्राप्त नहीं हुआ है।</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>

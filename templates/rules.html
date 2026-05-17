@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>शुल्क एवं गणवेश | सरस्वती शिशु मंदिर</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="school-banner-image" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ url_for('static', filename='images/gate.jpg') }}');">
+        <div class="banner-overlay-flex">
+            <div class="logo-box"><img src="{{ url_for('static', filename='images/logo.png') }}" class="banner-side-logo"></div>
+            <div class="banner-text">
+                <h1>🚩 सरस्वती शिशु मंदिर सेनापति</h1>
+                <h3>फर्रुखाबाद, उत्तर प्रदेश</h3>
+                <p class="school-motto">|| स्वयंमेव मृगेन्द्रता ||</p>
+            </div>
+            <div class="logo-box"><img src="{{ url_for('static', filename='images/vidya_bharati.png') }}" class="banner-side-logo bg-white-circle"></div>
+        </div>
+    </div>
+
+    <!-- नेविगेशन बार -->
+    <nav>
+        <a href="/">होम</a>
+        <a href="/about">हमारे बारे में</a>
+        <a href="/teachers">हमारे शिक्षक</a>
+        <a href="/rules">शुल्क / ड्रेस कोड</a>
+        <a href="/gallery">गैलरी / आदेश</a>
+        <a href="/contact">प्रवेश / संपर्क</a>
+    </nav>
+
+    <!-- मुख्य कंटेंट -->
+    <div class="rules-page-container">
+        
+        <!-- 1. फीस संरचना सेक्शन -->
+        <div class="fee-section">
+            <h2>💰 विद्यालय शुल्क संरचना (सत्र २०२६-२७)</h2>
+            <p style="color: #7f8c8d; margin-bottom: 15px;">कृपया ध्यान दें: शुल्क प्रतिमाह की १० तारीख तक जमा करना अनिवार्य है।</p>
+            <table class="fee-table">
+                <thead>
+                    <tr>
+                        <th>कक्षा (Class)</th>
+                        <th>प्रवेश शुल्क (Admission Fee)</th>
+                        <th>मासिक शुल्क (Monthly Fee)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>शिशु वर्ग (Nursery / KG)</td>
+                        <td>₹ ५००</td>
+                        <td>₹ ३००</td>
+                    </tr>
+                    <tr>
+                        <td>कक्षा १ से ५ (Primary)</td>
+                        <td>₹ ६००</td>
+                        <td>₹ ४००</td>
+                    </tr>
+                    <tr>
+                        <td>कक्षा ६ से ८ (Junior)</td>
+                        <td>₹ ८००</td>
+                        <td>₹ ५००</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- बिल्कुल सही और फिक्स किया गया डाउनलोड बटन -->
+<div style="text-align: center; margin-top: 20px; position: relative; z-index: 100;">
+    <button onclick="window.print()" class="fee-download-btn">
+        📥 शुल्क विवरण डाउनलोड / प्रिंट करें (PDF)
+    </button>
+</div>
+
+
+        </div>
+
+        <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ddd;">
+
+        <!-- 2. ड्रेस कोड सेक्शन -->
+        <div class="dress-section">
+            <h2>👔 विद्यालय गणवेश (Dress Code)</h2>
+            <p style="color: #7f8c8d; margin-bottom: 20px;">सभी भैया-बहनों को पूर्ण गणवेश में अनुशासित होकर विद्यालय आना अनिवार्य है।</p>
+            
+            <div class="dress-grid">
+                <div class="dress-card">
+                    <h3>👦 भैया (Boys) के लिए:</h3>
+                    <ul>
+                        <li>स्लेटी (Grey) रंग का निक्कर या पैंट</li>
+                        <li>सफेद (White) रंग की आधी आस्तीन की कमीज</li>
+                        <li>काले जूते और सफेद मोज़े</li>
+                        <li>विद्यालय का बेल्ट और मोनोग्राम (लोगो)</li>
+                    </ul>
+                </div>
+                
+                <div class="dress-card">
+                    <h3>👧 बहनों (Girls) के लिए:</h3>
+                    <ul>
+                        <li>स्लेटी (Grey) रंग की फ्रॉक या स्कर्ट</li>
+                        <li>सफेद (White) रंग की कमीज</li>
+                        <li>सफेद रिबन या हेयरबैंड</li>
+                        <li>काले जूते और सफेद मोज़े</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="wednesday-dress" style="margin-top: 20px; background: #eef2f7; padding: 15px; border-radius: 6px; border-left: 5px solid #2980b9;">
+                <strong>⚪ बुधवार और शनिवार विशेष:</strong> इन दिनों सभी छात्र-छात्राओं के लिए पूरी तरह सफेद (White Uniform) गणवेश और सफेद पीटी जूते पहनना अनिवार्य है।
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 सरस्वती शिशु मंदिर सेनापति, फर्रुखाबाद.</p>
+    </footer>
+    <!-- html2pdf लाइब्रेरी और डाउनलोड लॉजिक -->
+<script src="https://cloudflare.com"></script>
+<script>
+    function downloadFeePDF() {
+        // सिर्फ फीस वाले हिस्से को सेलेक्ट करना
+        const element = document.querySelector('.fee-section');
+        
+        // पीडीएफ की सेटिंग्स
+        const opt = {
+            margin:       10,
+            filename:     'Saraswati_Shishu_Mandir_Fee_Structure.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 2 },
+            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+
+        // पीडीएफ बनाकर डाउनलोड करना
+        html2pdf().set(opt).from(element).save();
+    }
+</script>
+
+</body>
+</html>

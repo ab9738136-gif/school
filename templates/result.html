@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <title>परीक्षा परिणाम २०२६ | सरस्वती शिशु मंदिर</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="school-banner-image" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ url_for('static', filename='images/gate.jpg') }}');">
+        <div class="banner-overlay-flex">
+            <div class="logo-box"><img src="{{ url_for('static', filename='images/logo.png') }}" class="banner-side-logo"></div>
+            <div class="banner-text"><h1>🚩 सरस्वती शिशु मंदिर सेनापति</h1><h3>फर्रुखाबाद, उत्तर प्रदेश</h3></div>
+            <div class="logo-box"><img src="{{ url_for('static', filename='images/vidya_bharati.png') }}" class="banner-side-logo bg-white-circle"></div>
+        </div>
+    </div>
+
+    <nav>
+        <a href="/">होम</a>
+        <a href="/result">परीक्षा परिणाम</a>
+        <a href="/rules">शुल्क / ड्रेस</a>
+        <a href="/contact">प्रवेश फॉर्म</a>
+    </nav>
+
+    <div class="form-container" style="max-width: 600px;">
+        <h2 style="text-align: center; color: #2c3e50;">🏆 ऑनलाइन परीक्षा परिणाम (Result Portal)</h2>
+        <form method="POST" style="margin-top: 20px; text-align: center;">
+            <label style="font-weight: bold; font-size: 16px;">छात्र का अनुक्रमांक (Roll Number) दर्ज करें:</label>
+            <input type="text" name="roll_no" placeholder="उदाहरण के लिए: 101" required style="width: 70%; padding: 10px; margin: 15px 0;">
+            <button type="submit" class="submit-btn" style="max-width: 200px; display: block; margin: 0 auto;">परिणाम देखें</button>
+        </form>
+
+        {% if error %}<p style="color: red; text-align: center; margin-top: 15px; font-weight: bold;">⚠️ {{ error }}</p>{% endif %}
+
+        <!-- 🖨️ डिजिटल मार्कशीट ब्लॉक (फिक्स किया गया) -->
+        {% if result %}
+        <div id="print-marksheet" style="margin-top: 30px; border: 2px double #e67e22; padding: 20px; background: #fffdf9;">
+            <h3 style="text-align: center; color: #d35400;">🚩 सरस्वती शिशु मंदिर सेनापति, फर्रुखाबाद</h3>
+            <h4 style="text-align: center; margin-bottom: 20px;">वार्षिक परीक्षा अंक पत्र - २०२६</h4>
+            <p><strong>अनुक्रमांक:</strong> {{ result[0] }} &nbsp;&nbsp;&nbsp;&nbsp; <strong>छात्र का नाम:</strong> {{ result[1] }}</p>
+            <p><strong>कक्षा:</strong> {{ result[2] }}</p>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 15px; text-align: center;">
+                <thead>
+                    <tr style="background: #2c3e50; color: white;"><th>विषय</th><th>प्राप्तांक</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>हिंदी</td><td>{{ result[3] }}</td></tr>
+                    <tr><td>अंग्रेजी</td><td>{{ result[4] }}</td></tr>
+                    <tr><td>गणित</td><td>{{ result[5] }}</td></tr>
+                    <tr><td>विज्ञान</td><td>{{ result[6] }}</td></tr>
+                    <tr style="font-weight: bold; background: #f2f2f2;"><td>कुल योग</td><td>{{ result[7] }} / 400</td></tr>
+                    <tr style="font-weight: bold; color: {% if result[8] == 'पास' %}green{% else %}red{% endif %};">
+                        <td>परिणाम स्थिति</td><td>{{ result[8] }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button onclick="window.print()" class="submit-btn" style="margin-top: 15px; background: #27ae60;">📥 अंक पत्र प्रिंट करें</button>
+        </div>
+        {% endif %}
+    </div>
+    <footer><p>&copy; 2026 सरस्वती शिशु मंदिर सेनापति, फर्रुखाबाद.</p></footer>
+</body>
+</html>

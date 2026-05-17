@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>गैलरी एवं सूचना | सरस्वती शिशु मंदिर</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- यह है एकदम सही और फिक्स किया गया बैनर ढांचा -->
+<div class="school-banner-image" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ url_for('static', filename='images/gate.jpg') }}');">
+    <div class="banner-overlay-flex">
+        
+        <!-- बाएँ तरफ: स्कूल का मुख्य सिंह वाला लोगो -->
+        <div class="logo-box">
+            <img src="{{ url_for('static', filename='images/vidya_bharati.png') }}" alt="विद्या भारती लोगो" class="banner-side-logo bg-white-circle">
+        </div>
+        
+        <!-- बीच में: स्कूल का नाम और ध्येय वाक्य -->
+        <div class="banner-text">
+            <h1>सरस्वती शिशु विद्या मंदिर </h1>
+            <h3>सेनापति फर्रुखाबाद</h3>
+            <p class="school-motto">|| स्वयंमेव मृगेन्द्रता ||</p>
+        </div>
+        
+        <!-- दाएँ तरफ: विद्या भारती का लोगो -->
+      <div class="logo-box">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="स्कूल लोगो" class="banner-side-logo">
+        </div>
+    </div>
+</div>
+    <nav>
+        <a href="/">होम</a>
+        <a href="/about">हमारे बारे में</a>
+        <a href="/gallery">गैलरी / आदेश</a>
+        <a href="/contact">प्रवेश / संपर्क</a>
+    </nav>
+
+    <!-- स्कूल प्रबंधन एवं मुख्य सूचना -->
+    <div class="management-section">
+        <h2>👥 हमारा प्रबंधन</h2>
+        <div class="management-grid">
+            <div class="management-card">
+                <img src="{{ url_for('static', filename='images/prabandhak.jpg') }}" alt="प्रबंधक" onerror="this.src='https://placehold.co'">
+                <h4>श्री प्रबन्धक महोदय</h4>
+                <p>प्रबंधक समिति</p>
+            </div>
+            <div class="management-card">
+                <img src="{{ url_for('static', filename='images/principal.jpg') }}" alt="प्रधानाचार्य" onerror="this.src='https://placehold.co'">
+                <h4>श्री धर्मवीर सिंह</h4>
+                <p>प्रधानाचार्य</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- आवश्यक आदेश / सूचना पट -->
+    <div class="notice-section">
+        <h2>📢 महत्वपूर्ण आदेश एवं सूचनाएं</h2>
+        <marquee behavior="scroll" direction="up" scrollamount="2" style="height: 100px; background: #fff8ee; padding: 10px; border-radius: 5px; border-left: 5px solid #d35400;">
+            • सत्र २०२६-२७ के लिए ऑनलाइन प्रवेश पत्र स्वीकार किए जा रहे हैं।<br>
+            • विद्यालय में ग्रीष्मकालीन अवकाश की घोषणा जल्द ही की जाएगी।<br>
+            • आगामी सांस्कृतिक कार्यक्रम की तैयारियां शुरू हो चुकी हैं।
+        </marquee>
+    </div>
+
+    <!-- पासपोर्ट साइज फोटो सेक्शन (5 फोटो) -->
+    <div class="gallery-section">
+        <h2>👤 हमारे मेधावी छात्र / मुख्य आचार्य (पासपोर्ट साइज)</h2>
+        <div class="passport-grid">
+            <!-- आप अपनी 5 फोटो के नाम यहाँ बदल सकते हैं -->
+            <img src="{{ url_for('static', filename='images/photo1.jpg') }}" onerror="this.src='https://placehold.co'">
+            <img src="{{ url_for('static', filename='images/photo2.jpg') }}" onerror="this.src='https://placehold.co'">
+            <img src="{{ url_for('static', filename='images/photo3.jpg') }}" onerror="this.src='https://placehold.co'">
+            <img src="{{ url_for('static', filename='images/photo4.jpg') }}" onerror="this.src='https://placehold.co'">
+            <img src="{{ url_for('static', filename='images/photo5.jpg') }}" onerror="this.src='https://placehold.co'">
+        </div>
+    </div>
+
+    <!-- स्कूल प्रोग्राम फोटो सेक्शन (15 फोटो) -->
+    <div class="gallery-section" style="margin-bottom: 80px;">
+        <h2>🎉 स्कूल कार्यक्रम एवं उत्सव झलकियां (15 तस्वीरें)</h2>
+        <div class="program-grid">
+            <!-- नीचे 15 फोटो का ढांचा है, इमेज फोल्डर में डालने पर यह दिखने लगेंगी -->
+            <img src="{{ url_for('static', filename='images/prog1.jpg') }}" onerror="this.src='https://placehold.co'">
+            <img src="{{ url_for('static', filename='images/prog2.jpg') }}" onerror="this.src='https://placehold.co'">
+            <img src="{{ url_for('static', filename='images/prog3.jpg') }}" onerror="this.src='https://placehold.co'">
+            <img src="{{ url_for('static', filename='images/prog4.jpg') }}" onerror="this.src='https://placehold.co'">
+            <img src="{{ url_for('static', filename='images/prog5.jpg') }}" onerror="this.src='https://placehold.co'">
+            <img src="{{ url_for('static', filename='images/prog6.jpg') }}" onerror="this.src='https://placehold.co'">
+            <img src="{{ url_for('static', filename='images/prog7.jpg') }}" onerror="this.src='https://placehold.co'">
+            <img src="{{ url_for('static', filename='images/prog8.jpg') }}" onerror="this.src='https://placehold.co'">
+            <img src="{{ url_for('static', filename='images/prog9.jpg') }}" onerror="this.src='https://placehold.co'">
+            <img src="{{ url_for('static', filename='images/prog10.jpg') }}" onerror="this.src='https://placehold.co0'">
+            <img src="{{ url_for('static', filename='images/prog11.jpg') }}" onerror="this.src='https://placehold.co1'">
+            <img src="{{ url_for('static', filename='images/prog12.jpg') }}" onerror="this.src='https://placehold.co2'">
+            <img src="{{ url_for('static', filename='images/prog13.jpg') }}" onerror="this.src='https://placehold.co3'">
+            <img src="{{ url_for('static', filename='images/prog14.jpg') }}" onerror="this.src='https://placehold.co4'">
+            <img src="{{ url_for('static', filename='images/prog15.jpg') }}" onerror="this.src='https://placehold.co5'">
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 सरस्वती शिशु मंदिर सेनापति, फर्रुखाबाद.</p>
+    </footer>
+</body>
+</html>

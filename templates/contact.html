@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>छात्र प्रवेश फॉर्म | सरस्वती शिशु मंदिर</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+     <!-- यह है एकदम सही और फिक्स किया गया बैनर ढांचा -->
+<div class="school-banner-image" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ url_for('static', filename='images/gate.jpg') }}');">
+    <div class="banner-overlay-flex">
+        
+        <!-- बाएँ तरफ: स्कूल का मुख्य सिंह वाला लोगो -->
+        <div class="logo-box">
+            <img src="{{ url_for('static', filename='images/vidya_bharati.png') }}" alt="विद्या भारती लोगो" class="banner-side-logo bg-white-circle">
+        </div>
+        
+        <!-- बीच में: स्कूल का नाम और ध्येय वाक्य -->
+        <div class="banner-text">
+            <h1>सरस्वती शिशु विद्या मंदिर </h1>
+            <h3>सेनापति फर्रुखाबाद</h3>
+            <p class="school-motto">|| स्वयंमेव मृगेन्द्रता ||</p>
+        </div>
+        
+        <!-- दाएँ तरफ: विद्या भारती का लोगो -->
+      <div class="logo-box">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="स्कूल लोगो" class="banner-side-logo">
+        </div>
+    </div>
+</div>
+
+    <nav>
+        <a href="/">होम</a>
+        <a href="/about">हमारे बारे में</a>
+        <a href="/contact">प्रवेश / संपर्क</a>
+    </nav>
+
+    <div class="form-container admission-form">
+        <h2>📝 छात्र प्रवेश आवेदन पत्र (सत्र २०२६-२७)</h2>
+        <p style="text-align: center; color: #7f8c8d;">कृपया सभी जानकारी हिंदी या अंग्रेजी के बड़े अक्षरों में भरें।</p>
+        
+        <form action="/contact" method="POST">
+            <div class="form-group">
+                <label>१. छात्र/छात्रा का पूरा नाम:</label>
+                <input type="text" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label>२. पिता का नाम:</label>
+                <input type="text" name="father_name" required>
+            </div>
+
+            <div class="form-group">
+                <label>३. माता का नाम:</label>
+                <input type="text" name="mother_name" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>४. जन्म तिथि (DD/MM/YYYY):</label>
+                    <input type="date" name="dob" required>
+                </div>
+                <div class="form-group">
+                    <label>५. प्रवेश हेतु कक्षा:</label>
+                    <input type="text" name="class_name" placeholder="जैसे: कक्षा ५" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>६. छात्र का आधार नंबर:</label>
+                <input type="text" name="aadhaar" pattern="[0-9]{12}" placeholder="12 अंकों का आधार नंबर" required>
+            </div>
+
+            <div class="form-group">
+                <label>७. अभिभावक का मोबाइल नंबर:</label>
+                <input type="tel" name="mobile" pattern="[0-9]{10}" placeholder="10 अंकों का मोबाइल नंबर" required>
+            </div>
+
+            <div class="form-group">
+                <label>८. स्थायी पता:</label>
+                <textarea name="address" rows="3" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">📄 आवेदन पत्र जमा करें</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 सरस्वती शिशु मंदिर सेनापति, फर्रुखाबाद.</p>
+    </footer>
+</body>
+</html>

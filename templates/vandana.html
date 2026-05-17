@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>नित्य वंदना एवं प्रार्थना | सरस्वती शिशु मंदिर</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* शीर्ष पर ३ गोल फोटो ग्रिड */
+        .top-circle-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 25px auto;
+            flex-wrap: wrap;
+            max-width: 800px;
+        }
+        .circle-photo-card {
+            text-align: center;
+            width: 140px;
+        }
+        .circle-photo-card img {
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 50%; /* गोल फ्रेम */
+            border: 4px solid #e67e22; /* भगवा बॉर्डर */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            background: white;
+        }
+        .circle-photo-card p {
+            margin-top: 8px;
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 15px;
+        }
+
+        /* वंदना कार्ड स्टाइल */
+        .vandana-card {
+            background: #fffdf6;
+            border-left: 5px solid #e67e22;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .vandana-card h3 {
+            color: #d35400;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 22px;
+            border-bottom: 1px dashed #f39c12;
+            padding-bottom: 5px;
+        }
+        .shlok-text {
+            font-size: 18px;
+            line-height: 2.2;
+            text-align: center;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        /* सबसे नीचे स्कूल का लक्ष्य और वंदेमातरम बॉक्स */
+        .bottom-premium-section {
+            background: #fff5e6;
+            border: 2px solid #d35400;
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 40px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .school-goal-box {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+        .school-goal-box h3 { color: #c0392b; font-size: 24px; margin-bottom: 10px; }
+        .school-goal-box p { font-size: 16px; line-height: 1.8; color: #334155; font-weight: 500; }
+    </style>
+</head>
+<body>
+    <!-- मुख्य बैनर -->
+    <div class="school-banner-image" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ url_for('static', filename='images/gate.jpg') }}');">
+        <div class="banner-overlay-flex">
+            <div class="logo-box"><img src="{{ url_for('static', filename='images/logo.png') }}" class="banner-side-logo"></div>
+            <div class="banner-text">
+                <h1>🚩 सरस्वती शिशु मंदिर सेनापति</h1>
+                <h3>फर्रुखाबाद, उत्तर प्रदेश</h3>
+                <p class="school-motto">|| स्वयंमेव मृगेन्द्रता ||</p>
+            </div>
+            <div class="logo-box"><img src="{{ url_for('static', filename='images/vidya_bharati.png') }}" class="banner-side-logo bg-white-circle"></div>
+        </div>
+    </div>
+
+    <!-- नेविगेशन बार -->
+    <nav>
+        <a href="/">होम</a>
+        <a href="/about">हमारे बारे में</a>
+        <a href="/teachers">हमारे शिक्षक</a>
+        <a href="/rules">शुल्क / ड्रेस</a>
+        <a href="/vandana">नित्य वंदना</a>
+        <a href="/gallery">गैलरी / आदेश</a>
+        <a href="/contact">प्रवेश फॉर्म</a>
+        {% if session.get('logged_in') %}
+            <a href="/admin" style="color: #2ecc71;">🛠️ पैनल</a>
+        {% else %}
+            <a href="/login" style="color: #f1c40f;">🔐 लॉगिन</a>
+        {% endif %}
+    </nav>
+
+    <!-- ३ गोल फोटो ग्रिड सेक्शन (शीर्ष पर - बिल्कुल सही क्रम) --> 
+<div class="top-circle-grid">
+    
+    <!-- 1. माता सरस्वती -->
+    <div class="circle-photo-card">
+        <img src="{{ url_for('static', filename='images/saraswati.jpg') }}" onerror="this.src='https://placehold.co'">
+        <p>माता सरस्वती</p>
+    </div>
+
+   <!-- 3. ओम् -->
+    <div class="circle-photo-card">
+        <img src="{{ url_for('static', filename='images/om.jpg') }}" onerror="this.src='https://placehold.co'">
+        <p>ओम्</p>
+    </div>
+
+    <!-- 2. भारत माता -->
+    <div class="circle-photo-card">
+        <img src="{{ url_for('static', filename='images/bharat_mata.jpg') }}" onerror="this.src='https://placehold.co'">
+        <p>भारत माता</p>
+    </div>
+   
+
+</div>
+
+
+     <!-- मुख्य प्रार्थना सभा -->
+    <div class="rules-page-container" style="max-width: 850px; margin-bottom: 80px;">
+        <h2 style="text-align: center; color: #2c3e50; margin-bottom: 25px; border-bottom: 2px solid #e67e22; padding-bottom: 10px;">🙏 विद्यालय नित्य वंदना क्रम</h2>
+        
+        <!-- 📋 स्कूल डायरी के अनुसार वन्दना का आधिकारिक क्रम -->
+<div style="background: #ffffff; border: 2px solid #e67e22; border-radius: 8px; padding: 20px; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+    <h3 style="color: #d35400; text-align: center; margin-bottom: 15px; border-bottom: 2px solid #f39c12; padding-bottom: 5px;">📜 वन्दना का क्रम (स्कूल डायरी के अनुसार)</h3>
+    
+    <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; font-size: 16px; font-weight: bold; color: #2c3e50;">
+        <!-- बाएँ तरफ की सूची -->
+        <div style="line-height: 2;">
+            <div>🔸 दीप प्रज्ज्वलन</div>
+            <div>🔸 दीप मंत्र</div>
+            <div>🔸 मातृ प्रणाम - १, २, ३</div>
+            <div>🔸 प्रार्थना</div>
+            <div>🔸 वन्दना</div>
+        </div>
+        
+        <!-- दाएँ तरफ की सूची -->
+        <div style="line-height: 2;">
+            <div>🔸 ब्रह्मनाद</div>
+            <div>🔸 गायत्री मंत्र</div>
+            <div>🔸 भारत माता वन्दना</div>
+            <div>🔸 शान्ति पाठ</div>
+            <div>🔸 मातृ प्रणाम - १, २, ३</div>
+        </div>
+    </div>
+</div>
+
+        
+      <!-- १. प्रातः स्मरणम् (डायरी के अनुसार बिल्कुल शुद्ध एवं पूर्ण ७ श्लोक) -->
+<div class="vandana-card pratah-card">
+    <h3 style="color: #27ae60; border-bottom-color: #2ecc71;">१. प्रातः स्मरणम् (श्लोक एवं फलश्रुति)</h3>
+    <p class="shlok-text" style="font-weight: bold; font-size: 18px; line-height: 2.3; color: #1e293b;">
+        कराग्रे वसते लक्ष्मीः करमध्ये सरस्वती।<br>
+        करमूले तु गोविन्दः प्रभाते करदर्शनम्॥ १ ॥<br><br>
+        
+        समुद्रवसने देवि! पर्वतस्तनमण्डले।<br>
+        विष्णुपत्नि! नमस्तुभ्यं पादस्पर्शं क्षमस्व मे॥ २ ॥<br><br>
+        
+        ब्रह्मा मुरारिस्त्रिपुरान्तकारी भानुः शशी भूमिसुतो बुधश्च।<br>
+        गुरुश्च शुक्रः शनिराहुकेतवः कुर्वन्तु सर्वे मम सुप्रभातम॥ ३ ॥<br><br>
+        
+        सनत्कुमारः सनकः सनन्दनः, सनातनोऽप्यासुरिसिंहलौ च।<br>
+        सप्तस्वराः सप्त रसातलांनि, कुर्वन्तु सर्वे मम सुप्रभातम॥ ४ ॥<br><br>
+        
+        सप्तार्णवाः सप्त कुलाचलाश्च, सप्तर्षयो द्वीपवनानि सप्त।<br>
+        भूरादि कृत्वा भुवनानि सप्त, कुर्वन्तु सर्वे मम सुप्रभातम॥ ५ ॥<br><br>
+        
+        पृथ्वी सगन्धा सरसास्तथापः, स्पर्शी च वायुर्ज्वलनं च तेजः।<br>
+        नभः सशब्दं महता सहैव, कुर्वन्तु सर्वे मम सुप्रभातम॥ ६ ॥<br><br>
+        
+        प्रातः स्मरणमेतद्यो विदित्वाऽदरतः पठेत्।<br>
+        स सम्यग् धर्मनिष्ठः स्यात्, संस्मृताखण्ड भारतः॥ ७ ॥<br><br>
+        
+        <span style="font-size: 20px; color: #c0392b; display: block; margin-top: 10px;">॥ भारत माता की जय ॥</span>
+    </p>
+</div>
+
+
+
+        <!-- २. दीप ज्योति मन्त्र (बिल्कुल अलग और फिक्स किया गया श्लोक बॉक्स) -->
+<div class="vandana-card" style="background: #fffdf2; border-left: 5px solid #f1c40f;"> <!-- दीप की लौ जैसा पीला बॉर्डर -->
+    <h3 style="color: #d35400; border-bottom: 1px dashed #f39c12; padding-bottom: 5px;">२. दीप प्रज्वलन मन्त्र</h3>
+    <p class="shlok-text" style="font-weight: bold; color: #b7950b;">
+        दीप ज्योतिः परं ज्योतिः, दीप ज्योतिर्जनार्दनः।<br>
+        दीपो हरतु मे पापं, दीप ज्योतिः नमोस्तुते॥
+    </p>
+    <p class="shlok-text" style="font-weight: bold; color: #b7950b;">
+       शुभं करोति कल्याणं, आरोग्यं सुख सम्पदः ।<br>
+        द्वेष बुद्धिः विनाशाय, आत्मज्योतिः नमोस्तुते॥
+    </p>
+    <p class="shlok-text" style="font-weight: bold; color: #b7950b;">
+        आत्मज्योतिः प्रदीप्ताय, ब्रह्म ज्योतिः नमोस्तुते।<br>
+       ब्रह्म ज्योतिः प्रदीप्ताय, गुरुज्योतिः नमोस्तुते॥
+    </p>
+    
+</div>
+       <!-- ३. संस्कृत सरस्वती वंदना (दोनों श्लोक एक साथ) -->
+<div class="vandana-card">
+    <h3>३. सरस्वती वन्दना (संस्कृत)</h3>
+    <p class="shlok-text" style="font-weight: bold;">
+        या कुन्देन्दुतुषारहारधवला या शुभ्रवस्त्रावृता।<br>
+        या वीणावरदण्डमण्डितकरा या श्वेतपद्मासना॥<br>
+        या ब्रह्माच्युतशंकरप्रभृतिभिर्देवैः सदा वन्दिता।<br>
+        सा मां पातु सरस्वती भगवती निःशेषजाड्यापहा॥ १ ॥<br><br>
+        
+        शुक्लां ब्रह्मविचार सार परमामाद्यां जगद्व्यापिनीं<br>
+        वीणा-पुस्तक धारिणीमभयदां जाड्यान्धकारापहाम्।<br>
+        हस्ते स्फाटिकमालिकां विदधतीं पद्मासने संस्थिताम्<br>
+        वन्दे तां परमेश्वरीं भगवतीं बुद्धिप्रदां शारदाम्॥ २ ॥
+    </p>
+</div>
+
+<!-- ४. हिंदी वंदना (हे हंसवाहिनी ज्ञानदायिनी - पूर्ण पाठ) -->
+<div class="vandana-card" style="background: #fffaf0; border-left: 5px solid #e74c3c;"> <!-- हल्का गुलाबी/सिन्दूरी बॉर्डर -->
+    <h3>४. सरस्वती वन्दना (हिंदी)</h3>
+    <p class="shlok-text" style="font-style: normal; font-size: 17px; color: #1e293b; line-height: 2;">
+        हे हंसवाहिनी ज्ञानदायिनी<br>
+        अम्ब विमल मति दे। अम्ब विमल मति दे॥<br>
+        जग सिरमौर बनायें भारत,<br>
+        वह बल विक्रम दे। वह बिल विक्रम दे॥<br>
+        हे हंसवाहिनी ज्ञानदायिनी<br>
+        अम्ब विमल मति दे। अम्ब विमल मति दे॥<br><br>
+        
+        साहस शील हृदय में भर दे,<br>
+        जीवन त्याग-तपोमय कर दे,<br>
+        संयम सत्य स्नेह का वर दे,<br>
+        स्वाभिमान भर दे। स्वाभिमान भर दे॥ १ ॥<br>
+        हे हंसवाहिनी ज्ञानदायिनी<br>
+        अम्ब विमल मति दे। अम्ब विमल मति दे॥<br><br>
+        
+        लव, कुश, ध्रुव, प्रहलाद बनें हम,<br>
+        मानवता का त्रास हरें हम,<br>
+        सीता, सावित्री, दुर्गा माँ,<br>
+        फिर घर-घर भर दें। फिर घर-घर भर दें॥ २ ॥<br>
+        हे हंसवाहिनी ज्ञानदायिनी<br>
+        अम्ब विमल मति दे। अम्ब विमल मति दे॥
+    </p>
+</div>
+
+ 
+        <!-- ४. एकात्मता मन्त्र -->
+        <div class="vandana-card">
+            <h3>४. एकात्मता मन्त्र</h3>
+            <p class="shlok-text">
+                यं वैदिका मन्त्रदृशः पुराणाः इन्द्रं यमं मातरिश्वानमाहुः।<br>
+                वेदान्तिनोऽनिर्वचनीयमेकम् यं ब्रह्मशब्देन विनिर्दिशन्ति॥<br>
+                शैवा यमीशं शिव इत्यवोचन् यं वैष्णवा विष्णुरिति स्तुवन्ति।<br>
+                बुद्धस्तथार्हन्निति बौद्धजैनाः सत्स्रीति सन्तः सहशाकटकेशाः॥<br>
+                हरिरिति कीर्तयन्ति यं भक्ताः प्रभुरिति ख्रिस्तमसीहशब्दाः।<br>
+                स एक एव प्रभुरद्वितीयः सर्वान् प्रसीदतु सः नित्यशः॥
+            </p>
+        </div>
+
+<!-- गायत्री-मन्त्र भावार्थ के साथ -->
+<div class="vandana-card" style="background: #fffdf9; border-left: 5px solid #f39c12;">
+    <h3>गायत्री-मन्त्र</h3>
+    <p class="shlok-text" style="font-weight: bold; color: #d35400;">
+        ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं<br>
+        भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात्॥ ॐ ॥
+    </p>
+    <div style="background: #fdf6ec; padding: 15px; border-radius: 4px; margin-top: 15px; font-size: 15px; line-height: 1.6; color: #5c3e16; text-align: justify;">
+        <strong>भावार्थ:</strong> उस प्राण स्वरूप, दुःखनाशक, सुखस्वरूप, तेजस्वी, पापनाशक, देवस्वरूप परमात्मा को हम अन्तःकरण में धारण करें। वह परमात्मा हमारी बुद्धि को सन्मार्ग में प्रेरित करे।
+    </div>
+</div>
+
+<!-- शान्ति-पाठ (डायरी के अनुसार सटीक रूप) -->
+<div class="vandana-card">
+    <h3>शान्ति-पाठ</h3>
+    <p class="shlok-text">
+        ॐ द्यौः शान्तिरन्तरिक्षं क्षं शान्तिः। पृथिवी शान्तिरापः<br>
+        शान्तिरोषधयः शान्तिः। वनस्पतयः शान्तिर्विश्वे देवाः शान्तिर्ब्रह्म<br>
+        शान्तिः सर्वं क्षं शान्तिः शान्तिरेव शान्तिः, सा मा शान्तिरेधि॥<br><br>
+        ॐ शान्तिः! शान्तिः!! शान्तिः!!!
+    </p>
+</div>
+
+
+
+
+        <!-- ५. भोजन मन्त्र -->
+        <div class="vandana-card">
+            <h3>५. भोजन मन्त्र</h3>
+            <p class="shlok-text">
+                ॐ सह नाववतु। सह नौ भुनक्तु। सह वीर्यं करवावहै।<br>
+                तेजस्वि नावधीतमस्तु मा विद्विषावहै॥ ॐ शान्तिः शान्तिः शान्तिः॥<br>
+                <span style="font-size: 15px; color: #7f8c8d;">ब्रह्मार्पणं ब्रह्म हविः ब्रह्माग्नौ ब्रह्मणा हुतम्। ब्रह्मैव तेन गन्तव्यं ब्रह्मकर्मसमाधिना॥</span>
+            </p>
+        </div>
+
+       <!-- 🎯 अखिल भारतीय शिक्षा संस्थान - हमारा लक्ष्य (डायरी के अनुसार पूर्ण पाठ) -->
+<div class="school-goal-box" style="text-align: center; margin-bottom: 35px; background: #fffdf6; padding: 25px; border-radius: 6px; border: 1px solid #f39c12;">
+    <h3 style="color: #c0392b; font-size: 24px; margin-bottom: 15px; font-weight: bold;">🎯 हमारा लक्ष्य (Our Mission)</h3>
+    <p style="font-size: 17px; line-height: 2; color: #2c3e50; font-weight: 500; text-align: justify; max-width: 750px; margin: 0 auto;">
+        "हमारा लक्ष्य इस प्रकार की राष्ट्रीय शिक्षा प्रणाली का विकास करना है जिसके द्वारा हिन्दुत्वनिष्ठ एवं राष्ट्रभक्ति से ओत-प्रोत तथा शारीरिक, प्राणिक, मानसिक, बौद्धिक एवं आध्यात्मिक दृष्टि से पूर्ण विकसित युवा पीढ़ी का निर्माण हो, जो जीवन की वर्तमान चुनौतियों का सामना सफलतापूर्वक कर सके और जिसका जीवन नगरों, ग्रामों, वनों, गिरिकन्दराओं एवं चुनौतीपूर्ण क्षेत्रों में निवास करने वाले वंचित और अभावग्रस्त अपने बांधवों को सामाजिक कुरीतियों एवं अन्याय से मुक्त कराकर राष्ट्र-जीवन को सुसंस्कृत समरस, तथा सुसम्पन्न बनाते हुए 'वसुधैवकुटुम्बकम्' के भाव से प्रेरित होकर विश्वकल्याण के लिए समर्पित हो।"
+    </p>
+</div>
+
+            
+                      <!-- राष्ट्रगीत वन्देमातरम् (डायरी के अनुसार पूर्ण ६ पद) -->
+<div class="vandematram-box" style="text-align: center; background: #fff5e6; border: 2px solid #d35400; border-radius: 8px; padding: 30px; margin-top: 30px;">
+    <h3 style="color: #c0392b; font-size: 26px; margin-bottom: 20px; border-bottom: 1px dashed #d35400; padding-bottom: 10px;">🇮🇳 राष्ट्रगीत - वन्दे मातरम् (पूर्ण पाठ)</h3>
+    <p class="shlok-text" style="color: #1e293b; font-style: normal; font-weight: bold; font-size: 18px; line-height: 2.2;">
+        वन्दे मातरम्! वन्दे मातरम्!॥<br>
+        सुजलां सुफलां मलयजशीतलाम,<br>
+        शस्यश्यामलां मातरम्। वन्दे मातरम्!॥ १ ॥<br><br>
+
+        शुभ्रज्योत्स्नापुलकितयामिनीम्,<br>
+        फुल्लकुसुमितद्रुमदलशोभिनीम्,<br>
+        सुहासिनीं सुमधुर-भाषिणीम्,<br>
+        सुखदां वरदां मातरम्॥ वन्दे मातरम्!॥ २ ॥<br><br>
+
+        कोटि-कोटि कण्ठ-कल-कल निनादकराले,<br>
+        कोटि-कोटि भुजैर्धृत-खर करवाले,<br>
+        अबला केनो मा एतो बले!<br>
+        बहुबलधारिणीं नमामि तारिणीं<br>
+        रिपुदलवारिणीं मातरम्॥ वन्दे मातरम्!॥ ३ ॥<br><br>
+
+        तुमि विद्या तुमि धर्म तुमि हृदि तुमि मर्म<br>
+        त्वं हि प्राणाः शरीरे।<br>
+        बाहु ते तुमि माँ शक्ति<br>
+        हृदये तुमि माँ भक्ति<br>
+        तोमारि प्रतिमा गड़ि मन्दिरे-मन्दिरे॥ वन्दे मातरम्!॥ ४ ॥<br><br>
+
+        त्वं हि दुर्गा दशप्रहरणधारिणी<br>
+        कमला कमलदल विहारिणी<br>
+        वाणी विद्यादायिनी नमामि त्वां<br>
+        नमामि कमलां अमलां अतुलाम्<br>
+        सुजलां सुफलां मातरम्॥ वन्दे मातरम्!॥ ५ ॥<br><br>
+
+        श्यामलां सरलां सुस्मितां भूषितां<br>
+        धरणीं भरणीं मातरम्।<br>
+        वन्दे मातरम्!॥ ६ ॥<br><br>
+        
+        <span style="font-size: 22px; color: #c0392b; display: block; margin-top: 15px;">॥ भारत माता की जय ॥</span>
+    </p>
+</div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 सरस्वती शिशु मंदिर सेनापति, फर्रुखाबाद.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>आचार्य एवं शिक्षक सूची | सरस्वती शिशु मंदिर</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+     <!-- यह है एकदम सही और फिक्स किया गया बैनर ढांचा -->
+<div class="school-banner-image" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ url_for('static', filename='images/gate.jpg') }}');">
+    <div class="banner-overlay-flex">
+        
+        <!-- बाएँ तरफ: स्कूल का मुख्य सिंह वाला लोगो -->
+        <div class="logo-box">
+            <img src="{{ url_for('static', filename='images/vidya_bharati.png') }}" alt="विद्या भारती लोगो" class="banner-side-logo bg-white-circle">
+        </div>
+        
+        <!-- बीच में: स्कूल का नाम और ध्येय वाक्य -->
+        <div class="banner-text">
+            <h1>सरस्वती शिशु विद्या मंदिर </h1>
+            <h3>सेनापति फर्रुखाबाद</h3>
+            <p class="school-motto">|| स्वयंमेव मृगेन्द्रता ||</p>
+        </div>
+        
+        <!-- दाएँ तरफ: विद्या भारती का लोगो -->
+      <div class="logo-box">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="स्कूल लोगो" class="banner-side-logo">
+        </div>
+    </div>
+</div>
+    <!-- अपडेटेड नेविगेशन बार -->
+    <nav>
+        <a href="/">होम</a>
+        <a href="/about">हमारे बारे में</a>
+        <a href="/teachers">हमारे शिक्षक</a>
+        <a href="/gallery">गैलरी / आदेश</a>
+        <a href="/contact">प्रवेश / संपर्क</a>
+    </nav>
+
+    <div class="teachers-page-container">
+        <h2>👨‍🏫 विद्यालय के मार्गदर्शक (आचार्य एवं शिक्षिकाएं)</h2>
+        <p style="text-align: center; color: #7f8c8d; margin-bottom: 30px;">शिक्षण एवं संस्कार प्रदान करने वाली हमारी समर्पित टीम</p>
+
+        <div class="teachers-main-grid">
+            <!-- शिक्षक 1 का कार्ड -->
+            <div class="teacher-profile-card">
+                <img src="{{ url_for('static', filename='images/teacher1.jpg') }}" onerror="this.src='https://placehold.co'">
+                <h3>श्री रामनाथ जी</h3>
+                <p class="designation">वरिष्ठ आचार्य (गणित)</p>
+                <p class="phone-num">📞 +91 9415XXXXXX</p>
+            </div>
+
+            <!-- शिक्षक 2 का कार्ड -->
+            <div class="teacher-profile-card">
+                <img src="{{ url_for('static', filename='images/teacher2.jpg') }}" onerror="this.src='https://placehold.co'">
+                <h3>श्रीमती राधा देवी</h3>
+                <p class="designation">आचार्या (संस्कृत)</p>
+                <p class="phone-num">📞 +91 9935XXXXXX</p>
+            </div>
+
+            <!-- शिक्षक 3 का कार्ड -->
+            <div class="teacher-profile-card">
+                <img src="{{ url_for('static', filename='images/teacher3.jpg') }}" onerror="this.src='https://placehold.co'">
+                <h3>श्री अमित दीक्षित</h3>
+                <p class="designation">आचार्य (विज्ञान)</p>
+                <p class="phone-num">📞 +91 8874XXXXXX</p>
+            </div>
+
+            <!-- 💡 नोट: इसी प्रकार आप इस <div class="teacher-profile-card">...</div> वाले हिस्से को 
+                 कॉपी-पेस्ट करके सभी 30 शिक्षकों का नाम, पद और मोबाइल नंबर आसानी से बदल सकते हैं। -->
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 सरस्वती शिशु मंदिर सेनापति, फर्रुखाबाद.</p>
+    </footer>
+</body>
+</html>
