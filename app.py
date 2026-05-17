@@ -187,6 +187,9 @@ def admin_panel():
 def logout():
     session.pop('logged_in', None)
     return redirect(url_for('home'))
+@app.route('/sw.js')
+def serve_sw():
+    return app.send_static_file('sw.js')
 
 if __name__ == '__main__':
     init_db()
